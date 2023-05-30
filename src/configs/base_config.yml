@@ -1,0 +1,50 @@
+primary_evaluator:
+  train_path: "../MotionDataset/T2MEval_263_dataset/"
+  test_path: "../MotionDataset/T2MEval_263_dataset/"
+  val_path: "../MotionDataset/T2MEval_263_dataset/"
+  log_path: "../logs/primary_evaluator/"
+  checkpoint_path: "../checkpoints/primary_evaluator/"
+  exp_name: "std_bpe2000"
+  cache_key: "_263"
+  chunk_encoder:
+    chunk_size: 10
+    chunk_overlap: 4
+    frame_enc_groups: 8
+    frame_enc_dim: 384
+    frame_enc_red_dim: 128
+    enc_dim: 1024
+    input_dim: 263
+    dropout: 0.2
+  tokenizer_and_embedders:
+    tokenizer_train_path: "../MotionDataset/T2MEval_263_dataset/train_texts.txt"
+    vocab_size: 2000
+    train_method: "BPE"
+    max_context_length: 64
+    use_seg_embs: True
+  primary_evaluator_model:
+    num_heads: 4
+    num_layers: 3
+    dim_ff: 1024
+    dropout: 0.1
+    enc_dim: 256
+    token_pred_dim_ff: 128
+    init_pretrained_embs: False
+    use_sentence_transformer: True
+    st_distance: "cosine"
+    st_model: "all-mpnet-base-v2"
+    st_emb_cache: "../st_emb_cache"
+    group_norm: True
+
+  training_params:
+    learning_rate: 1e-4
+    ae_learning_rate: 0.0
+    num_epochs: 10000
+    val_iters: 1000
+    batch_size: 1024
+    num_threads: 12
+    gradient_clip: 1.0
+    max_val_samples: 4096
+    max_train_samples: -1
+    entail_weight: 1.0
+    nll_weight: 0.0
+  seed: 42
