@@ -1,6 +1,9 @@
 # MoBERT
 MoBERT: A Strongly Correlated Text-to-Motion Evaluation Metric
 
+# Updates
+
+- July 19, 2023
 Based on follow-up testing we do not recommend using the raw Alignment probability scores for downstream applications despite their moderate degree of human judgment correlation. This score has been observed to not be robust to out-of-domain motion generation methods. Instead please use the human guidance finetuned ratings, which show robust and reasonable distributions to out-of-domain motion generations. The raw distributions of scores from our tests can be seen in the below images. 
 
 ![alt text](documentation/gt.png?raw=true)
