@@ -10,7 +10,7 @@ Based on follow-up testing we do not recommend using the raw Alignment probabili
 ![alt text](documentation/gt.png?raw=true)
 ![alt text](documentation/generated.png?raw=true)
 
-Note that these scores are currently calculated using a sklearn regressor model and so can not be used as an objective for supervised finetuning in motion generation models. We provide Ridge regression models which nearly match the performance of the SVR ones and could be converted into a gradient-enabled linear weight tensor for objective calculations. 
+Note that these scores are currently calculated using a sklearn regressor model and so can not be used as an objective for supervised finetuning in motion generation models. We provide Ridge regression models that nearly match the performance of the SVR ones and could be converted into a gradient-enabled linear weight tensor for objective calculations. 
 
 # Installation
 This code is tested on Linux Ubuntu 22.04 and with Python 3.9. 
@@ -18,11 +18,11 @@ Using Conda run the following to create an environment.
 ````
 conda env create -f environment.yml
 ````
-Download checkpoints from this drive and unzip them in the checkpoints/primary_evaluator/directory
+Download checkpoints from this drive and unzip them in the checkpoints/primary_evaluator/ directory
 ````
 https://drive.google.com/file/d/1gmljNRJKf_IujUIlcmCl9Q6mZI_Qceiv/view?usp=sharing
 ````
-Download our evaluation dataset from the drive and unzip them in the MotionDataset/folder.
+Download our evaluation dataset from the drive and unzip it in the MotionDataset/ directory.
 ````
 https://drive.google.com/file/d/1obWxAH0kh3WaVbcfcetMhaxF38FqBmqp/view?usp=sharing
 ````
@@ -68,5 +68,5 @@ texts = ...
 # All scores should range from [0, 1] with higher scores being better. Regression scores may occur outside this range as well. 
 alignment, faithfulness_rating, naturalness_rating = model.rate_alignment_batch(texts, motions, motion_masks, device)
 ````
-# Acknologments
+# Acknowledgments
 This code is built with some code provided by https://github.com/EricGuo5513/HumanML3D and we are grateful for the work they have done up to this point. 
