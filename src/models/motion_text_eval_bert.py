@@ -328,8 +328,8 @@ class MotionTextEvalBERT(nn.Module):
 
             regression_features = torch.concat([alingment_preds, cls_embs, text_acum_embs, motion_acum_embs], dim=1)
             if (self.load_trained_regressors_path):
-                naturalness_rating = self.naturalness_regressor.predict(regression_features.detach().cpu().numpy()) / 5
-                faithfulness_rating = self.faithfulness_regressor.predict(regression_features.detach().cpu().numpy()) / 5
+                naturalness_rating = self.naturalness_regressor.predict(regression_features.detach().cpu().numpy()) / 4
+                faithfulness_rating = self.faithfulness_regressor.predict(regression_features.detach().cpu().numpy()) / 4
             return nn.functional.sigmoid(alingment_preds.view(-1)), faithfulness_rating, naturalness_rating
 
 
